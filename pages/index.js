@@ -1,11 +1,12 @@
 import React from 'react'
-import Header from '../components/shared/Header'
+import BaseLayout from '../components/layouts/BaseLayout'
 
 const Index = () => {
   return (
     <div>
-      <Header />
-      Page de base
+      <BaseLayout>
+        Page de base
+      </BaseLayout>
     </div>
   )
 }
