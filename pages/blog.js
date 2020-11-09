@@ -5,7 +5,8 @@ export default class Blog extends Component {
     render() {
         return (
             <BaseLayout>
-                Page Blog
+                <h1>Page blog</h1>
+
             </BaseLayout>
         )
     }
