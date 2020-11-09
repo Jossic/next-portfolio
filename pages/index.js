@@ -1,11 +1,12 @@
 import React from 'react'
 import BaseLayout from '../components/layouts/BaseLayout'
+import { Container } from 'reactstrap';
 
 const Index = () => {
   return (
     <div>
       <BaseLayout>
-        Page de base
+        <Container>Page de base</Container>
       </BaseLayout>
     </div>
   )

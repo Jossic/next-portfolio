@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Link from 'next/Link'
+import Link from 'next/link'
 
 export default class Header extends Component {
     render() {
@@ -20,9 +20,6 @@ export default class Header extends Component {
                 <Link href='/cv'>
                     <a>CV</a>
                 </Link>
-                <style jsx>{`
-                
-                `}</style>
             </>
         )
     }
