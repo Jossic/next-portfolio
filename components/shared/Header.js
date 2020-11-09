@@ -20,6 +20,9 @@ export default class Header extends Component {
                 <Link href='/cv'>
                     <a>CV</a>
                 </Link>
+                <style jsx>{`
+                
+                `}</style>
             </>
         )
     }
