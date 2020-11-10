@@ -18,11 +18,9 @@ const Header = () => {
     return (
 
         <Navbar className='port-navbar port-default absolute' color="transparent" dark expand="md">
-            <NavbarBrand className='port-navbar-brand'>
-                <Link href='/'>
-                    <a className="port-navbar-brand">JL@ DEV WEB</a>
-                </Link>
-            </NavbarBrand>
+            <Link href='/'>
+                <a className="port-navbar-brand navbar-brand">JL@ DEV WEB</a>
+            </Link>
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
                 <Nav className="mr-auto" navbar>
