@@ -1,26 +1,39 @@
-import React, { Component } from 'react'
-import Link from 'next/link'
+import React, { useState } from 'react';
+import {
+    Collapse,
+    Navbar,
+    NavbarToggler,
+    NavbarBrand,
+    Nav,
+    NavItem,
+    NavbarText
+} from 'reactstrap';
+import BsNavLink from './BsNavLink';
 
-export default class Header extends Component {
-    render() {
-        return (
-            <>
-                <Link href='/'>
-                    <a>Accueil</a>
-                </Link>
-                <Link href='/about'>
-                    <a>A propos</a>
-                </Link>
-                <Link href='/portfolio'>
-                    <a>Portfolio</a>
-                </Link>
-                <Link href='/blog'>
-                    <a>Blog</a>
-                </Link>
-                <Link href='/cv'>
-                    <a>CV</a>
-                </Link>
-            </>
-        )
-    }
+const Header = (props) => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggle = () => setIsOpen(!isOpen);
+
+    return (
+
+        <Navbar color="dark" dark expand="md">
+            <NavbarBrand>LOGO</NavbarBrand>
+            <NavbarToggler onClick={toggle} />
+            <Collapse isOpen={isOpen} navbar>
+                <Nav className="mr-auto" navbar>
+                    <BsNavLink href='/' title='Accueil' />
+                    <BsNavLink href='/portfolio' title='Portfolio' />
+                    <BsNavLink href='/blog' title='Blog' />
+                    <BsNavLink href='/cv' title='CV' />
+                    <BsNavLink href='/about' title='A propos' />
+                </Nav>
+                <NavbarText>JL@ DEV WEB</NavbarText>
+            </Collapse>
+        </Navbar>
+
+    );
 }
+
+
+export default Header
