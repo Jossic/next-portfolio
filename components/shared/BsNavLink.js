@@ -6,9 +6,9 @@ import {
 
 const BsNavLink = ({ title, href }) => {
     return (
-        <NavItem>
+        <NavItem className='port-navbar-item'>
             <Link href={href}>
-                <a className="nav-link">
+                <a className="nav-link port-navbar-link">
                     {title}
                 </a>
             </Link>

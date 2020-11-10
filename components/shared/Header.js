@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React, { useState } from 'react';
 import {
     Collapse,
@@ -5,20 +6,23 @@ import {
     NavbarToggler,
     NavbarBrand,
     Nav,
-    NavItem,
     NavbarText
 } from 'reactstrap';
 import BsNavLink from './BsNavLink';
 
-const Header = (props) => {
+const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggle = () => setIsOpen(!isOpen);
 
     return (
 
-        <Navbar color="dark" dark expand="md">
-            <NavbarBrand>LOGO</NavbarBrand>
+        <Navbar className='port-navbar port-default absolute' color="transparent" dark expand="md">
+            <NavbarBrand className='port-navbar-brand'>
+                <Link href='/'>
+                    <a className="port-navbar-brand">JL@ DEV WEB</a>
+                </Link>
+            </NavbarBrand>
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
                 <Nav className="mr-auto" navbar>
@@ -28,7 +32,6 @@ const Header = (props) => {
                     <BsNavLink href='/cv' title='CV' />
                     <BsNavLink href='/about' title='A propos' />
                 </Nav>
-                <NavbarText>JL@ DEV WEB</NavbarText>
             </Collapse>
         </Navbar>
 
