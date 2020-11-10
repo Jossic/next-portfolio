@@ -1,47 +1,8 @@
-@font-face {
-    font-family: 'Merriweather';
-    src: url('/fonts/Merriweather-Regular.ttf');
-    font-wight: normal;
-    font-style: normal;
-}
 
-@font-face {
-    font-family: 'Merriweather';
-    src: url('/fonts/Merriweather-Bold.ttf');
-    font-wight: bold;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Merriweather';
-    src: url('/fonts/Merriweather-Italic.ttf');
-    font-wight: normal;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'BigShouldersStencil';
-    src: url('/fonts/BigShouldersStencilText-Regular.ttf');
-    font-wight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'BigShouldersStencil';
-    src: url('/fonts/BigShouldersStencilText-Bold.ttf');
-    font-wight: bold;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'BigShouldersStencil';
-    src: url('/fonts/BigShouldersStencilText-Light.ttf');
-    font-wight: lighter;
-    font-style: normal;
-}
+@import './shared/fonts';
 
 html, body {
     font-family: 'BigShouldersStencil';
-    font-size: 35px;
+    font-size: 20px;
     font-weight: bold;
 }
