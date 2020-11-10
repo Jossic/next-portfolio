@@ -2,7 +2,6 @@ import React from 'react'
 import BaseLayout from '../components/layouts/BaseLayout'
 import { Container, Row, Col } from 'reactstrap';
 import Typed from 'react-typed';
-import BasePage from '../components/BasePage';
 
 const ROLES = ['FullStack Developer', 'React JS', 'Node JS', 'MERN Stack']
 
