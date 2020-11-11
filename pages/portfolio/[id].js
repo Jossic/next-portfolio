@@ -1,28 +1,32 @@
 import BaseLayout from '@/components/layouts/BaseLayout'
-import axios from 'axios';
 import BasePage from '@/components/BasePage';
+import { useGetProjets } from '../../actions';
+import { useRouter } from 'next/router';
+import Loader from '../../components/Loader';
 
-const Projet = ({ projet }) => {
+const Projet = () => {
+    const router = useRouter()
+    const { projets, error, loading } =
+        useGetProjets(router.query.id ? `/api/v1/projets/${router.query.id}` : null)
+    console.log(projets)
     return (
         <BaseLayout>
             <BasePage>
-                <h1>{projet.title}</h1>
-                <p>{projet.id}</p>
-                <p>{projet.body}</p>
+                {loading && <Loader />}
+                {projets &&
+                    <>
+                        <h1>{projets.title}</h1>
+                        <p>{projets.id}</p>
+                        <p>{projets.body}</p>
+                    </>
+                }
+                {error &&
+                    <div className="alert alert-danger">{error.message}</div>
+                }
             </BasePage>
         </BaseLayout>
     )
 }
 
-Projet.getInitialProps = async ({ query }) => {
-    let projet = {}
-    try {
-        const res = await axios.get(`https://jsonplaceholder.typicode.com/posts/${query.id}`)
-        projet = res.data
-    } catch (error) {
-        console.log(error);
-    }
-    return { projet }
-}
 
 export default Projet

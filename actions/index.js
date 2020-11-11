@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 
-export const useGetProjets = () => {
-    const [projets, setProjets] = useState([])
+export const useGetProjets = (url) => {
+    const [projets, setProjets] = useState()
     const [error, setError] = useState()
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         async function getProjets() {
-            const res = await fetch('/api/v1/projets');
+            const res = await fetch(url);
             const result = await res.json();
             if (res.status !== 200) {
                 setError(result)
@@ -16,8 +16,8 @@ export const useGetProjets = () => {
             }
             setLoading(false)
         }
-        getProjets()
-    }, [])
+        url && getProjets()
+    }, [url])
 
     return { projets, error, loading }
 }

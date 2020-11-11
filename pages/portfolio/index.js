@@ -6,7 +6,7 @@ import Loader from '@/components/Loader';
 
 
 const Portfolio = () => {
-    const { projets, error, loading } = useGetProjets()
+    const { projets, error, loading } = useGetProjets('/api/v1/projets')
 
     return (
         <BaseLayout>
