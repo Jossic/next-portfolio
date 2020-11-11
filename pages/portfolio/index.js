@@ -2,15 +2,17 @@ import BaseLayout from '@/components/layouts/BaseLayout'
 import BasePage from '@/components/BasePage';
 import Link from 'next/link'
 import { useGetProjets } from '@/actions';
+import Loader from '@/components/Loader';
 
 
 const Portfolio = () => {
-    const { projets, error } = useGetProjets()
+    const { projets, error, loading } = useGetProjets()
 
     return (
         <BaseLayout>
             <BasePage>
                 <h1>Page Portfolio</h1>
+                {loading && <Loader />}
                 {projets &&
                     <ul>
                         {
