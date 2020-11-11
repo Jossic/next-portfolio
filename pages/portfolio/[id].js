@@ -1,7 +1,6 @@
-import BaseLayout from '../components/layouts/BaseLayout'
+import BaseLayout from '../../components/layouts/BaseLayout'
 import axios from 'axios';
-import BasePage from '../components/BasePage';
-import { withRouter } from 'next/router'
+import BasePage from '../../components/BasePage';
 
 const Post = ({ post }) => {
     return (
@@ -13,7 +12,6 @@ const Post = ({ post }) => {
             </BasePage>
         </BaseLayout>
     )
-
 }
 
 Post.getInitialProps = async ({ query }) => {
@@ -27,4 +25,4 @@ Post.getInitialProps = async ({ query }) => {
     return { post }
 }
 
-export default withRouter(Portfolio)
+export default Post
