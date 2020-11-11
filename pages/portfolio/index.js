@@ -1,15 +1,16 @@
 import BaseLayout from '@/components/layouts/BaseLayout'
 import BasePage from '@/components/BasePage';
-import axios from 'axios';
 import Link from 'next/link'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-const Portfolio = ({ posts }) => {
+const Portfolio = () => {
+    const [posts, setPosts] = useState([])
 
     useEffect(() => {
-        const getPosts = async () => {
-            const res = await fetch('/api/v1/posts')
-            const data = res.json()
+        async function getPosts() {
+            const res = await fetch('/api/v1/posts');
+            const data = await res.json();
+            setPosts(data);
         }
 
         getPosts()
@@ -35,18 +36,6 @@ const Portfolio = ({ posts }) => {
             </BasePage>
         </BaseLayout>
     )
-}
-
-Portfolio.getInitialProps = async () => {
-    let posts = []
-    try {
-        const res = await axios.get('https://jsonplaceholder.typicode.com/posts')
-        posts = res.data
-    }
-    catch (error) {
-        console.log(error);
-    }
-    return { posts: posts.slice(0, 10) }
 }
 
 export default Portfolio
