@@ -1,23 +1,18 @@
-import { useEffect, useState } from 'react';
+import useSWR from 'swr'
 
-export const useGetProjets = (url) => {
-    const [projets, setProjets] = useState()
-    const [error, setError] = useState()
-    const [loading, setLoading] = useState(true)
+const fetcher = (url) =>
+    fetch(url).then(async res => {
+        const result = await res.json();
 
-    useEffect(() => {
-        async function getProjets() {
-            const res = await fetch(url);
-            const result = await res.json();
-            if (res.status !== 200) {
-                setError(result)
-            } else {
-                setProjets(result);
-            }
-            setLoading(false)
+        if (res.status !== 200) {
+            return Promise.reject(result);
+        } else {
+            return result;
         }
-        url && getProjets()
-    }, [url])
+    });
 
-    return { projets, error, loading }
+
+export const useGetProjets = () => {
+    const { projets, error, ...rest } = useSWR('/api/v1/projets', fetcher);
+    return { projets, error, loading: !projets && !error, ...rest }
 }

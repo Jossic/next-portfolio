@@ -5,9 +5,10 @@ import { useGetProjets } from '@/actions';
 import Loader from '@/components/Loader';
 
 
-const Portfolio = () => {
-    const { projets, error, loading } = useGetProjets('/api/v1/projets')
 
+
+const Portfolio = () => {
+    const { projets, error, loading } = useGetProjets()
     return (
         <BaseLayout>
             <BasePage>
