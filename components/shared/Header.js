@@ -30,7 +30,7 @@ const Header = () => {
                 </Nav>
                 <Nav navbar>
                     <NavItem className='port-navbar-item'>
-                        <span className="nav-link port-navbar-link cliquable">Login</span>
+                        <BsNavLink href='/api/v1/login' title='Login' />
                     </NavItem>
                 </Nav>
             </Collapse>
