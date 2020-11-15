@@ -1,13 +1,12 @@
 import BaseLayout from '@/components/layouts/BaseLayout'
 import BasePage from '@/components/BasePage';
-import { useGetProjets } from '../../actions';
+import { useGetProjetsById } from '../../actions';
 import { useRouter } from 'next/router';
 import Loader from '../../components/Loader';
 
 const Projet = () => {
     const router = useRouter()
-    const { projets, error, loading } =
-        useGetProjets(router.query.id ? `/api/v1/projets/${router.query.id}` : null)
+    const { projets, error, loading } = useGetProjetsById(router.query.id);
     console.log(projets)
     return (
         <BaseLayout>

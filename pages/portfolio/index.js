@@ -9,6 +9,7 @@ import Loader from '@/components/Loader';
 
 const Portfolio = () => {
     const { projets, error, loading } = useGetProjets()
+    console.log(projets)
     return (
         <BaseLayout>
             <BasePage>

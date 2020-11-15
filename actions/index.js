@@ -13,6 +13,11 @@ const fetcher = (url) =>
 
 
 export const useGetProjets = () => {
-    const { projets, error, ...rest } = useSWR('/api/v1/projets', fetcher);
+    const { projets, error, ...rest } = useSWR(`/api/v1/projets`, fetcher);
+    return { projets, error, loading: !projets && !error, ...rest }
+}
+
+export const useGetProjetsById = (id) => {
+    const { projets, error, ...rest } = useSWR(id ? `/api/v1/projets/${id}` : null, fetcher);
     return { projets, error, loading: !projets && !error, ...rest }
 }
