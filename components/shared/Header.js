@@ -30,7 +30,8 @@ const Header = () => {
                 </Nav>
                 <Nav navbar>
                     <NavItem className='port-navbar-item'>
-                        <BsNavLink href='/api/v1/login' title='Login' />
+                        <a href="/api/v1/login" className="nav-link port-navbar-link">Login</a>
+                        {/* <BsNavLink href='/api/v1/login' title='Login' /> */}
                     </NavItem>
                 </Nav>
             </Collapse>
