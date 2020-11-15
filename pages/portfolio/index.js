@@ -3,15 +3,20 @@ import BasePage from '@/components/BasePage';
 import Link from 'next/link'
 import { useGetProjets } from '@/actions';
 import Loader from '@/components/Loader';
+import { useGetUser } from '@/actions/user';
 
 
 
 
 const Portfolio = () => {
-    const { projets, error, loading } = useGetProjets()
+    const { data: projets, error, loading } = useGetProjets()
+    const { data: dataUser, loading: loadingUser } = useGetUser()
     console.log(projets)
     return (
-        <BaseLayout>
+        <BaseLayout
+            user={dataUser}
+            loading={loadingUser}
+        >
             <BasePage>
                 <h1>Page Portfolio</h1>
                 {loading && <Loader />}

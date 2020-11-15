@@ -1,15 +1,20 @@
 import BaseLayout from '@/components/layouts/BaseLayout'
 import BasePage from '@/components/BasePage';
-import { useGetProjetsById } from '../../actions';
+import { useGetProjetById } from '../../actions';
 import { useRouter } from 'next/router';
 import Loader from '../../components/Loader';
+import { useGetUser } from '@/actions/user';
 
 const Projet = () => {
+    const { data: dataUser, loading: loadingUser } = useGetUser()
     const router = useRouter()
-    const { projets, error, loading } = useGetProjetsById(router.query.id);
+    const { data: projets, error, loading } = useGetProjetById(router.query.id);
     console.log(projets)
     return (
-        <BaseLayout>
+        <BaseLayout
+            user={dataUser}
+            loading={loadingUser}
+        >
             <BasePage>
                 {loading && <Loader />}
                 {projets &&

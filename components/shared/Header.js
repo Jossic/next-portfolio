@@ -9,7 +9,7 @@ import {
 } from 'reactstrap';
 import BsNavLink from './BsNavLink';
 
-const Header = () => {
+const Header = ({ user, loading }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggle = () => setIsOpen(!isOpen);
@@ -29,10 +29,25 @@ const Header = () => {
                     <BsNavLink href='/about' title='A propos' />
                 </Nav>
                 <Nav navbar>
-                    <NavItem className='port-navbar-item'>
-                        <a href="/api/v1/login" className="nav-link port-navbar-link">Login</a>
-                        {/* <BsNavLink href='/api/v1/login' title='Login' /> */}
-                    </NavItem>
+                    {!loading &&
+                        <>
+                            {user &&
+                                <NavItem className='port-navbar-item'>
+                                    <BsNavLink href='/api/v1/logout' title='Logout' />
+                                </NavItem>
+                            }
+                            {!user &&
+                                <NavItem className='port-navbar-item'>
+                                    <a href="/api/v1/login" className="nav-link port-navbar-link">Login</a>
+                                </NavItem>
+                            }
+
+                        </>
+                    }
+
+
+
+
                 </Nav>
             </Collapse>
         </Navbar>

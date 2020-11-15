@@ -1,10 +1,15 @@
 
 import BaseLayout from '@/components/layouts/BaseLayout'
 import BasePage from '@/components/BasePage';
+import { useGetUser } from '@/actions/user';
 
 const Blog = () => {
+    const { data, loading } = useGetUser()
     return (
-        <BaseLayout>
+        <BaseLayout
+            user={data}
+            loading={loading}
+        >
             <BasePage>
                 <h1>Page blog</h1>
             </BasePage>

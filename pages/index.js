@@ -8,15 +8,16 @@ const ROLES = ['FullStack Developer', 'React JS', 'Node JS', 'MERN Stack']
 
 const Index = () => {
 
-  const { data, error, loading } = useGetUser()
-  debugger
+  const { data, loading } = useGetUser()
   return (
-    <BaseLayout className="cover">
+    <BaseLayout
+      user={data}
+      loading={loading}
+      className="cover">
       <div className="main-section">
         <div className="background-image">
           <img src="/images/background-index.png" />
         </div>
-
         <Container>
           <Row>
             <Col md="6">
