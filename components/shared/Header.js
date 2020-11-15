@@ -41,13 +41,8 @@ const Header = ({ user, loading }) => {
                                     <a href="/api/v1/login" className="nav-link port-navbar-link">Se connecter</a>
                                 </NavItem>
                             }
-
                         </>
                     }
-
-
-
-
                 </Nav>
             </Collapse>
         </Navbar>
