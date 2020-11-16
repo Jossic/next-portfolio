@@ -28,6 +28,7 @@ const Header = ({ user, loading }) => {
                     <BsNavLink href='/cv' title='CV' />
                     <BsNavLink href='/about' title='A propos' />
                     <BsNavLink href='/secret' title='Secret' />
+                    <BsNavLink href='/secretssr' title='SecretSSR' />
                 </Nav>
                 <Nav navbar>
                     {!loading &&
