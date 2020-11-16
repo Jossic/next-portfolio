@@ -1,12 +1,11 @@
 import { useGetUser } from '@/actions/user';
 import Redirect from '@/components/shared/Redirect';
-
 import { Spinner } from 'react-bootstrap';
+import { isAuthorized } from '../utils/auth0';
 
-const withAuth = (Component) => {
+const withAuth = (Component) => (role) => {
     return (props) => {
         const { data, loading } = useGetUser()
-
         if (loading) {
             return <Spinner />
         }
@@ -14,6 +13,9 @@ const withAuth = (Component) => {
         if (!data) {
             return <Redirect ssr to='/api/v1/login' />
         } else {
+            if (role && !isAuthorized(data, role)) {
+                return <Redirect ssr to="/api/v1/login" />
+            }
             return <Component
                 user={data}
                 loading={loading}
