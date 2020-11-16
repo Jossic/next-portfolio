@@ -30,6 +30,7 @@ const Header = ({ user, loading }) => {
                     <BsNavLink href='/secret' title='Secret' />
                     <BsNavLink href='/secretssr' title='SecretSSR' />
                     <BsNavLink href='/onlyadmin' title='Admin' />
+                    <BsNavLink href='/onlyadminssr' title='Admin SSR' />
                 </Nav>
                 <Nav navbar>
                     {!loading &&
