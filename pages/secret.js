@@ -4,12 +4,13 @@ import BasePage from '@/components/BasePage';
 import { useGetUser } from '@/actions/user';
 import { Spinner } from 'react-bootstrap';
 import Redirect from '../components/shared/Redirect';
+import withAuth from '../hoc/withAuth';
 
 
 
-const Secret = () => {
+
+const Secret = ({ title }) => {
     const { data, loading } = useGetUser()
-    const router = useRouter()
 
     if (loading) {
         return <Spinner />
@@ -24,12 +25,23 @@ const Secret = () => {
                 loading={loading}
             >
                 <BasePage>
-                    <h1>Page Secret</h1>
+                    <h1>Page Secret - {title}</h1>
                 </BasePage>
             </BaseLayout>
         )
     }
-
 }
 
-export default Secret
+// HOC - High Order Component
+
+// Depreciate
+// function withAuth(Component) {
+//     return function (props) {
+//         return <Component title='Teeeeeeeeeest' {...props} />
+//     }
+// }
+
+// const withAuth = (Component) => (props) => <Component title='Teaaaaeeeest' {...props} />
+
+
+export default withAuth(Secret)
