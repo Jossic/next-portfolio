@@ -1,7 +1,7 @@
 
 import BaseLayout from '@/components/layouts/BaseLayout'
 import BasePage from '@/components/BasePage';
-import auth0 from '@/utils/auth0'
+import { authorizeUser } from '@/utils/auth0'
 
 
 
@@ -14,21 +14,15 @@ const SecretSSR = ({ user }) => {
             </BasePage>
         </BaseLayout>
     )
-
 }
 
+
+
 export const getServerSideProps = async ({ req, res }) => {
-    const session = await auth0.getSession(req)
-    if (!session || !session.user) {
-        res.writeHead(302, {
-            Location: '/api/v1/login'
-        })
-        res.end()
-        return { props: {} }
-    }
+    const user = await authorizeUser(req, res)
 
     return {
-        props: { user: session.user }
+        props: { user }
     }
 }
 
