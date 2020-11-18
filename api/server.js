@@ -2,7 +2,8 @@ import express from 'express'
 import connectDB from './config/db.js';
 import dotenv from 'dotenv';
 import colors from 'colors';
-import portfolioRoutes from './routes/projectRoute.js'
+import projectRoute from './routes/projectRoute.js'
+import experienceRoute from './routes/experienceRoute.js'
 
 const server = express()
 
@@ -15,7 +16,8 @@ server.get('/', (req, res) => {
     return res.json({ message: 'Je test' })
 })
 
-server.use('/api/v1/projects', portfolioRoutes)
+server.use('/api/v1/projects', projectRoute)
+server.use('/api/v1/experiences', experienceRoute)
 
 
 const PORT = parseInt(process.env.PORT, 10) || 3001
