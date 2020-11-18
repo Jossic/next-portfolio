@@ -8,7 +8,7 @@ const server = express()
 
 dotenv.config();
 
-connectDB();
+await connectDB();
 
 
 server.get('/', (req, res) => {
