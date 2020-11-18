@@ -1,17 +1,15 @@
-import BaseLayout from '@/components/layouts/BaseLayout'
-import BasePage from '@/components/BasePage';
+import BaseLayout from '../../components/layouts/BaseLayout'
+import BasePage from '../../components/BasePage';
 import Link from 'next/link'
-import { useGetProjets } from '@/actions';
-import Loader from '@/components/Loader';
-import { useGetUser } from '@/actions/user';
+// import { getProjects } from '../../actions/projectActions';
+import Loader from '../../components/Loader';
+import { useGetUser } from '../../actions/user';
+import ProjectApi from '../../lib/api/projects'
 
 
 
-
-const Portfolio = () => {
-    const { data: projets, error, loading } = useGetProjets()
+const Portfolio = ({ projects }) => {
     const { data: dataUser, loading: loadingUser } = useGetUser()
-    console.log(projets)
     return (
         <BaseLayout
             user={dataUser}
@@ -19,15 +17,15 @@ const Portfolio = () => {
         >
             <BasePage>
                 <h1>Page Portfolio</h1>
-                {loading && <Loader />}
-                {projets &&
+                {/* {loading && <Loader />} */}
+                {projects &&
                     <ul>
                         {
-                            projets.map(projet => (
-                                <li key={projet.id}>
-                                    <Link as={`/portfolio/${projet.id}`} href='/portfolio/[id]'>
+                            projects.map(projet => (
+                                <li key={projet._id}>
+                                    <Link as={`/portfolio/${projet._id}`} href='/portfolio/[id]'>
                                         <a>
-                                            <span>{projet.id} :</span> <span>{projet.title}</span>
+                                            <span>{projet._id} :</span> <span>{projet.titre}</span>
                                         </a>
                                     </Link>
                                 </li>
@@ -35,13 +33,21 @@ const Portfolio = () => {
                         }
                     </ul>
                 }
-                {error &&
+                {/* {error &&
                     <div className="alert alert-danger">{error.message}</div>
-                }
+                } */}
 
             </BasePage>
         </BaseLayout>
     )
+}
+
+export async function getStaticProps() {
+    const json = await new ProjectApi().getAll();
+    const projects = json.data;
+    return {
+        props: { projects }
+    }
 }
 
 export default Portfolio
