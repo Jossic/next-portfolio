@@ -3,24 +3,28 @@ import mongoose from 'mongoose';
 const projectSchema = mongoose.Schema({
     titre: {
         type: String,
-        require: true
+        required: true
     },
     descriptif: {
         type: String,
-        require: true
+        required: true
     },
     technos: {
         type: Array,
-        require: true
+        required: false
     },
     lien: {
         type: String,
-        require: true
+        required: true
     },
     vignette: {
         type: String,
-        require: true
+        required: true
     },
+    ajoutLe: {
+        type: Date,
+        default: Date.now
+    }
 })
 
 const Project = mongoose.model('Project', projectSchema);
