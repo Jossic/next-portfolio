@@ -4,7 +4,9 @@ import Link from 'next/link'
 // import { getProjects } from '../../actions/projectActions';
 import Loader from '../../components/Loader';
 import { useGetUser } from '../../actions/user';
+import { Row, Col } from 'reactstrap';
 import ProjectApi from '../../lib/api/projects'
+import ProjectCard from '../../components/ProjectCard';
 
 
 
@@ -15,24 +17,18 @@ const Portfolio = ({ projects }) => {
             user={dataUser}
             loading={loadingUser}
         >
-            <BasePage>
+            <BasePage className='portfolio-page'>
                 <h1>Page Portfolio</h1>
                 {/* {loading && <Loader />} */}
-                {projects &&
-                    <ul>
-                        {
-                            projects.map(projet => (
-                                <li key={projet._id}>
-                                    <Link as={`/portfolio/${projet._id}`} href='/portfolio/[id]'>
-                                        <a>
-                                            <span>{projet._id} :</span> <span>{projet.titre}</span>
-                                        </a>
-                                    </Link>
-                                </li>
-                            ))
-                        }
-                    </ul>
-                }
+                <Row>
+                    {projects.map(project => (
+                        <Col key={project._id} md="4">
+                            <ProjectCard project={project} />
+                        </Col>
+                    ))
+                    }
+                </Row>
+
                 {/* {error &&
                     <div className="alert alert-danger">{error.message}</div>
                 } */}
@@ -41,6 +37,11 @@ const Portfolio = ({ projects }) => {
         </BaseLayout>
     )
 }
+
+// Portfolio.getInitialProps = async () => {
+//     const projects = await getProjects()
+//     return { projects }
+// }
 
 export async function getStaticProps() {
     const json = await new ProjectApi().getAll();
