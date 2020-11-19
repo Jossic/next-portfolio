@@ -9,6 +9,20 @@ const getProjects = async (req, res) => {
     return res.json(projects)
 }
 
+// @desc      Get project by Id
+// @route     GET /api/v1/project/:id
+// @access    Public
+const getProjectById = async (req, res) => {
+    const project = await Project.findById(req.params.id)
+
+    if (project) {
+        res.json(project)
+    } else {
+        res.status(404)
+        throw new Error('Projet non trouvée')
+    }
+}
 
 
-export { getProjects }
+
+export { getProjects, getProjectById }
