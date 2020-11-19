@@ -7,6 +7,11 @@ import ProjectForm from '../../components/ProjectForm';
 
 
 const NewProject = ({ user, loading: userLoading }) => {
+
+    const createProject = (data) => {
+        alert(JSON.stringify(data))
+    }
+
     return (
         <BaseLayout
             user={user}
@@ -15,7 +20,7 @@ const NewProject = ({ user, loading: userLoading }) => {
             <BasePage header="Ajouter un projet">
                 <Row>
                     <Col md='8'>
-                        <ProjectForm />
+                        <ProjectForm onSubmit={createProject} />
                     </Col>
                 </Row>
 

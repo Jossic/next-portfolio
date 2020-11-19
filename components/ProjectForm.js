@@ -1,11 +1,15 @@
 import React from 'react'
+import { useForm } from "react-hook-form";
 
-const ProjectForm = () => {
+const ProjectForm = ({ onSubmit }) => {
+
+    const { register, handleSubmit } = useForm();
     return (
-        <form>
+        <form onSubmit={handleSubmit(onsubmit)}>
             <div className="form-group">
                 <label htmlFor="titre">Titre</label>
                 <input
+                    ref={register}
                     name="titre"
                     type="text"
                     className="form-control"
@@ -15,6 +19,7 @@ const ProjectForm = () => {
             <div className="form-group">
                 <label htmlFor="technos">Technos</label>
                 <input
+                    ref={register}
                     name="technos"
                     type="text"
                     className="form-control"
@@ -24,6 +29,7 @@ const ProjectForm = () => {
             <div className="form-group">
                 <label htmlFor="lien">Lien</label>
                 <input
+                    ref={register}
                     name="lien"
                     type="text"
                     className="form-control"
@@ -33,6 +39,7 @@ const ProjectForm = () => {
             <div className="form-group">
                 <label htmlFor="vignette">Vignette</label>
                 <input
+                    ref={register}
                     name="jobTitle"
                     type="vignette"
                     className="form-control"
@@ -42,6 +49,7 @@ const ProjectForm = () => {
             <div className="form-group">
                 <label htmlFor="descriptif">Descriptif</label>
                 <textarea
+                    ref={register}
                     name="descriptif"
                     rows="3"
                     type="text"
@@ -54,7 +62,7 @@ const ProjectForm = () => {
                 type="submit"
                 className="btn btn-primary">Create
             </button>
-        </form>
+        </form >
     )
 }
 
