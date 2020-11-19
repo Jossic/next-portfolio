@@ -17,8 +17,9 @@ const Portfolio = ({ projects }) => {
             user={dataUser}
             loading={loadingUser}
         >
-            <BasePage className='portfolio-page'>
-                <h1>Page Portfolio</h1>
+            <BasePage
+                header='Liste des projets'
+                className='portfolio-page'>
                 {/* {loading && <Loader />} */}
                 <Row>
                     {projects.map(project => (

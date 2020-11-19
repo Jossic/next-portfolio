@@ -9,13 +9,13 @@ import {
 } from 'reactstrap';
 import BsNavLink from './BsNavLink';
 
-const Header = ({ user, loading }) => {
+const Header = ({ user, loading, className }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggle = () => setIsOpen(!isOpen);
 
     return (
-        <Navbar className='port-navbar port-default absolute' color="transparent" dark expand="md">
+        <Navbar className={`port-navbar port-default absolute ${className}`} dark expand="md">
             <Link href='/'>
                 <a className="port-navbar-brand navbar-brand">JL@ DEV WEB</a>
             </Link>

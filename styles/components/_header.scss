@@ -7,6 +7,11 @@
     padding: 20px;
     padding-left: 40px;
   
+    
+    &.with-bg{
+      background-color: rgb(9, 37, 41);
+    }
+    
     .port-navbar {
       &-brand {
         color: white;

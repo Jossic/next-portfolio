@@ -11,6 +11,7 @@ const Index = () => {
   const { data, loading } = useGetUser()
   return (
     <BaseLayout
+      navClass="transparent"
       user={data}
       loading={loading}
       className="cover">

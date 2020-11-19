@@ -28,6 +28,14 @@ html, body {
 
 .base-page {
     padding-top: 100px;
+    min-height: 100vh;
+    color: #dddddd;
+
+    .page-header-title {
+        font-weight: bold;
+        display: inline-block;
+        margin-bottom: 20px;
+    }
 }
 
 .cliquable {
