@@ -1,4 +1,10 @@
-import React from 'react'
+
+import React, { useState } from "react";
+import DatePicker, { registerLocale } from "react-datepicker";
+import fr from "date-fns/locale/fr"; // the locale you want
+registerLocale("fr", fr); // register it with the name you want
+
+
 import { useForm } from "react-hook-form";
 
 const ProjectForm = ({ onSubmit }) => {
@@ -56,6 +62,20 @@ const ProjectForm = ({ onSubmit }) => {
                     className="form-control"
                     id="descriptif">
                 </textarea>
+            </div>
+
+            <div className="form-group">
+                <label htmlFor="street">Start Date</label>
+                <div>
+                    <DatePicker dateFormat="dd/MM/yyyy" locale="fr" selected={new Date()} onChange={() => { }} />
+                </div>
+            </div>
+
+            <div className="form-group">
+                <label htmlFor="street">End Date</label>
+                <div>
+                    <DatePicker dateFormat="dd/MM/yyyy" locale="fr" selected={new Date()} onChange={() => { }} />
+                </div>
             </div>
 
             <button
