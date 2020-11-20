@@ -96,6 +96,7 @@ const ProjectForm = ({ onSubmit }) => {
                 <label htmlFor="street">Date de fin</label>
                 <div>
                     <DatePicker
+                        disabled={!endDate}
                         ref={register}
                         name="endDate"
                         dateFormat="dd/MM/yyyy"
@@ -104,6 +105,26 @@ const ProjectForm = ({ onSubmit }) => {
                         onChange={handleDateChange('endDate', setEndDate)}
                     />
                 </div>
+            </div>
+
+            <div className="form-group">
+                {endDate &&
+                    <button
+                        type='button'
+                        className='btn btn-warning'
+                        onClick={() => handleDateChange('endDate', setEndDate)(null)}>
+                        En cours
+                </button>
+                }
+                {!endDate &&
+                    <button
+                        type='button'
+                        className='btn btn-success'
+                        onClick={() => handleDateChange('endDate', setEndDate)(new Date)}>
+                        Mettre une fin
+                </button>
+                }
+
             </div>
 
             <button
