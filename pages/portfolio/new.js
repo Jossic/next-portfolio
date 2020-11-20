@@ -4,12 +4,14 @@ import BasePage from '../../components/BasePage';
 import withAuth from '../../hoc/withAuth';
 import { Col, Row } from 'reactstrap';
 import ProjectForm from '../../components/ProjectForm';
+import { createProject } from '../../actions/projectActions';
 
 
 const NewProject = ({ user, loading: userLoading }) => {
 
-    const createProject = (data) => {
+    const _createProject = (data) => {
         alert(JSON.stringify(data))
+        createProject(data)
     }
 
     return (
@@ -20,7 +22,7 @@ const NewProject = ({ user, loading: userLoading }) => {
             <BasePage header="Ajouter un projet">
                 <Row>
                     <Col md='8'>
-                        <ProjectForm onSubmit={createProject} />
+                        <ProjectForm onSubmit={_createProject} />
                     </Col>
                 </Row>
 
