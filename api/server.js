@@ -2,6 +2,7 @@ import express from 'express'
 import connectDB from './config/db.js';
 import dotenv from 'dotenv';
 import colors from 'colors';
+import bodyParser from 'body-parser';
 import projectRoute from './routes/projectRoute.js'
 import experienceRoute from './routes/experienceRoute.js'
 
@@ -12,10 +13,8 @@ dotenv.config();
 await connectDB();
 
 
-server.get('/', (req, res) => {
-    return res.json({ message: 'Je test' })
-})
 
+server.use(bodyParser.json())
 server.use('/api/v1/projects', projectRoute)
 server.use('/api/v1/experiences', experienceRoute)
 

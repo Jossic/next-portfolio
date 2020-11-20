@@ -23,6 +23,17 @@ const getProjectById = async (req, res) => {
     }
 }
 
+// @desc      Create Project
+// @route     POST /api/v1/projects
+// @access    Private
+const createProject = async (req, res) => {
+    const {
+
+    } = req.body
+    const project = await Project.find({})
+    return res.json(project)
+}
 
 
-export { getProjects, getProjectById }
+
+export { getProjects, getProjectById, createProject }
