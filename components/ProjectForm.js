@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DatePicker, { registerLocale } from "react-datepicker";
 import fr from "date-fns/locale/fr"; // the locale you want
 registerLocale("fr", fr); // register it with the name you want
@@ -8,10 +8,23 @@ registerLocale("fr", fr); // register it with the name you want
 import { useForm } from "react-hook-form";
 
 const ProjectForm = ({ onSubmit }) => {
+    const [startDate, setStartDate] = useState(null);
+    const [endDate, setEndDate] = useState(null);
+    const { register, handleSubmit, setValue } = useForm();
 
-    const { register, handleSubmit } = useForm();
+    useEffect(() => {
+        register({ name: 'startDate' });
+        register({ name: 'endDate' });
+    }, [register])
+
+
+    const handleDateChange = (dateType, setDate) => (date) => {
+        setValue(dateType, date)
+        setDate(date)
+    }
+
     return (
-        <form onSubmit={handleSubmit(onsubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form-group">
                 <label htmlFor="titre">Titre</label>
                 <input
@@ -65,22 +78,37 @@ const ProjectForm = ({ onSubmit }) => {
             </div>
 
             <div className="form-group">
-                <label htmlFor="street">Start Date</label>
+                <label htmlFor="street">Date de début</label>
                 <div>
-                    <DatePicker dateFormat="dd/MM/yyyy" locale="fr" selected={new Date()} onChange={() => { }} />
+                    <DatePicker
+                        ref={register}
+                        name="startDate"
+                        dateFormat="dd/MM/yyyy"
+                        locale="fr"
+                        selected={startDate}
+                        onChange={handleDateChange('startDate', setStartDate)}
+
+                    />
                 </div>
             </div>
 
             <div className="form-group">
-                <label htmlFor="street">End Date</label>
+                <label htmlFor="street">Date de fin</label>
                 <div>
-                    <DatePicker dateFormat="dd/MM/yyyy" locale="fr" selected={new Date()} onChange={() => { }} />
+                    <DatePicker
+                        ref={register}
+                        name="endDate"
+                        dateFormat="dd/MM/yyyy"
+                        locale="fr"
+                        selected={endDate}
+                        onChange={handleDateChange('endDate', setEndDate)}
+                    />
                 </div>
             </div>
 
             <button
                 type="submit"
-                className="btn btn-primary">Create
+                className="btn btn-primary"> Ajouter
             </button>
         </form >
     )
