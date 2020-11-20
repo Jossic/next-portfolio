@@ -6,6 +6,7 @@ const experiences = [
         location: 'Spain, Barcelona',
         jobTitle: 'Engineer',
         description: 'Doing something, programing....',
+        userId: 'google-oauth2|103515021470057858971',
         startDate: '01/01/2014',
         endDate: '01/01/2016'
     },
@@ -16,6 +17,7 @@ const experiences = [
         location: 'Slovakia, Kosice',
         jobTitle: 'Software Engineer',
         description: 'Responsoble for parsing framework for JSON medical data.',
+        userId: 'google-oauth2|103515021470057858971',
         startDate: '01/01/2011',
         endDate: '01/01/2013'
     },
@@ -26,6 +28,7 @@ const experiences = [
         location: 'USA, Montana',
         jobTitle: 'Housekeeping',
         description: 'So much responsibility....Overloaaaaaad',
+        userId: 'google-oauth2|103515021470057858971',
         startDate: '01/01/2010',
         endDate: '01/01/2011'
     }

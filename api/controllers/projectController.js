@@ -27,11 +27,19 @@ const getProjectById = async (req, res) => {
 // @route     POST /api/v1/projects
 // @access    Private
 const createProject = async (req, res) => {
-    const {
+    const { projectData } = req.body
+    const userId = 'google-oauth2|103515021470057858971'
+    const project = new Project(projectData)
+    project.userId = userId
 
-    } = req.body
-    const project = await Project.find({})
-    return res.json(project)
+
+
+    try {
+        const newProject = await project.save()
+        return res.json(newProject)
+    } catch (e) {
+        return res.status(422).send(e.message)
+    }
 }
 
 

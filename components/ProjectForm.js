@@ -59,8 +59,8 @@ const ProjectForm = ({ onSubmit }) => {
                 <label htmlFor="vignette">Vignette</label>
                 <input
                     ref={register}
-                    name="jobTitle"
-                    type="vignette"
+                    name="vignette"
+                    type="text"
                     className="form-control"
                     id="vignette" />
             </div>

@@ -12,6 +12,10 @@ POST http://localhost:3001/api/v1/projects
 Content-Type: application/json
 
 {
-    "name": "sample",
-    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+    "titre": "Mon nouveau projet",
+    "descriptif": "Portfolio fait avec next js",
+    "vignette": "https://picsum.photos/200",
+    "lien": "http://localhost:3000/projects/new",
+    "startDate": "2020-11-05T23:00:00.000Z",
+    "technos": "React, Next JS, Node JS"
 }

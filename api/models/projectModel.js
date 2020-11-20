@@ -21,6 +21,10 @@ const projectSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    userId: {
+        type: String,
+        required: true
+    },
     ajoutLe: {
         type: Date,
         default: Date.now
