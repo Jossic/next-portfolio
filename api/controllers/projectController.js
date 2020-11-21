@@ -33,7 +33,6 @@ const createProject = async (req, res) => {
     project.userId = userId
 
 
-
     try {
         const newProject = await project.save()
         return res.json(newProject)
