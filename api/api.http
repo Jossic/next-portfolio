@@ -10,6 +10,7 @@ GET http://localhost:3001/api/v1/experiences/5fb54390c554140dd034d2b7
 POST http://localhost:3001/api/v1/projects
 
 Content-Type: application/json
+Authorization: Bearer sgd545dfb
 
 {
     "titre": "Mon nouveau projet",

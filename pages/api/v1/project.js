@@ -6,7 +6,6 @@ export default createProject = async (req, res) => {
     try {
         const { accessToken } = await auth0.getSession(req)
         console.log(accessToken);
-        console.log(process.env.PORTFOLIO_API_URI);
         await new ProjectApi().createProject(req.body)
         // await axios.post(process.env.PORTFOLIO_API_URI + '/projects', req.body)
         return res.json({ message: 'Projet ajouté' })
