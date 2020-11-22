@@ -10,7 +10,7 @@ import { createProject } from '../../actions/projectActions';
 const NewProject = ({ user, loading: userLoading }) => {
 
     const _createProject = (data) => {
-        alert(JSON.stringify(data))
+        // alert(JSON.stringify(data))
         createProject(data)
     }
 

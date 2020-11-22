@@ -27,6 +27,7 @@ const getProjectById = async (req, res) => {
 // @route     POST /api/v1/projects
 // @access    Private
 const createProject = async (req, res) => {
+
     const { projectData } = req.body
     const userId = 'google-oauth2|103515021470057858971'
     const project = new Project(projectData)
