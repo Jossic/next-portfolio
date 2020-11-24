@@ -2,7 +2,7 @@ import BaseLayout from '../../components/layouts/BaseLayout'
 import BasePage from '../../components/BasePage';
 import { useRouter } from 'next/router';
 import Link from 'next/link'
-// import { getProjects } from '../../actions/projectActions';
+import { getProjects } from '../../actions/projectActions';
 import Loader from '../../components/Loader';
 import { useGetUser } from '../../actions/user';
 import { Row, Col } from 'reactstrap';
